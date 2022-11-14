@@ -9,7 +9,7 @@ $(document).ready(function() {
                 harga += $(this).data('harga');
                 if($(this).data('paket') != 'a') {
                     $('#ongkir').html('Rp 75.000');
-                    ongkir = 75000;
+                    ongkir = 90000;
                 }
 
                 data_arr.push({

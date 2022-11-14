@@ -113,6 +113,20 @@
                     </span>
                     <br>
                     @if($tes->count() > 0)
+                    @if ($data = Session::get('img_name'))
+                    <a href="{{ asset('img/certificate/'.$data) }}" download class="btn btn-block btn-info text-truncate rounded-0 py-2 d-none d-lg-block mt-5" style="z-index: 1000;">
+                        <strong>Download Sertifikat</strong>
+                    </a>
+                    <img src="{{ asset('img/certificate/'.$data) }}" alt="sertifikat" class="img-fluid">
+                    @else
+                    <form action="{{ url('/generate-certificate') }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-block btn-info text-truncate rounded-0 py-2 d-none d-lg-block mt-5" style="z-index: 1000;">
+                            <strong>Sertifikat tersedia.</strong> Klik disini untuk generate sekarang.
+                        </button>
+                    </form>
+                    @endif
+
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block mt-5">
                         <button type="button" class="close" data-dismiss="alert">×</button>	
