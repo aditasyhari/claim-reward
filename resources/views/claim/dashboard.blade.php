@@ -270,13 +270,24 @@
                         <div class="form-group">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
-                                    <label class="form-control-label">Upload Bukti Transfer</label>
+                                    <label class="form-control-label">Upload Bukti Transfer (Maks. 2 MB)</label>
                                 </div>
                             </div>
                             <div class="input-group">
                                 <input type="file" class="form-control" name="bukti" id="bukti" required>
                             </div>
                             <div class="form-text text-danger"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <label class="form-control-label">Catatan</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <textarea name="note" id="note" cols="30" rows="3" class="form-control" placeholder="tinggalkan catatan jika ada"></textarea>
+                            </div>
                         </div>
 
                         <input type="hidden" name="item_val" id="item_val">

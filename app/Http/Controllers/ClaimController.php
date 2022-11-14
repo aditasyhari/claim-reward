@@ -31,6 +31,7 @@ class ClaimController extends Controller
             'ongkir_val'    => 'nullable',
             'total_val'     => 'required',
             'detail_paket'  => 'required',
+            'note'      => 'nullable',
         ]);
 
         if ($validateData->fails()) {
@@ -52,7 +53,8 @@ class ClaimController extends Controller
             'item' => $request->item_val,
             'ongkir' => $request->ongkir_val,
             'total' => $request->total_val,
-            'bukti' => $fileName
+            'bukti' => $fileName,
+            'note' => $request->note
         ]);
 
         foreach($detail_paket as $detail) {
