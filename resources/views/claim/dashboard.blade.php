@@ -350,7 +350,8 @@
     <script src="{{ asset('assets/libs/feather-icons/dist/feather.min.js') }}"></script>
     <!-- Quick JS -->
     <script src="{{ asset('assets/js/quick-website.js') }}"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/dashboard.js' . '?time=' . date("Ymdhisu")) }}"></script>
+
     <!-- Feather Icons -->
     <script>
         feather.replace({
