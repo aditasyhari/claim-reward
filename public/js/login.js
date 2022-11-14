@@ -31,7 +31,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: "POST",
-                url: "/auth/login",
+                url: window.location.origin+"/auth/login",
                 data: formData,
                 dataType: "JSON",
                 processData: false,
