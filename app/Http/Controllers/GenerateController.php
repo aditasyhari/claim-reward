@@ -10,7 +10,8 @@ class GenerateController extends Controller
 {
     public function certificate(Request $request)
     {
-        $nama = ucwords(Auth::user()->user_firstname);
+        $nama = strtolower(Auth::user()->user_firstname);
+        $nama = ucwords($nama);
         $img_name = time().'.jpg';
         $img = Image::make(public_path('img/certificate-neso.jpg'));  
         $img->text($nama, 1700, 1100, function($font) {  
