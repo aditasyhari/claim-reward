@@ -8,8 +8,8 @@ $(document).ready(function() {
             if($(this).is(':checked')) {
                 harga += $(this).data('harga');
                 if($(this).data('paket') != 'a') {
-                    ongkir = 90000;
-                    $('#ongkir').html('Rp 90.000');
+                    ongkir = 100000;
+                    $('#ongkir').html('Rp 100.000');
                 }
 
                 data_arr.push({
