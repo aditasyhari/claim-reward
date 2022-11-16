@@ -275,7 +275,6 @@
                             </div>
                             <div class="h6" style="text-align: left !important;">
                                 <div>BCA 6595599699</div>
-                                <div>OVO 085215090131</div>
                                 <div>DANA 085215090131</div>
                                 <div>GOPAY 085215090131</div>
                             </div>
