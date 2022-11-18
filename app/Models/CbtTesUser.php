@@ -30,7 +30,7 @@ class CbtTesUser extends Model
                 ->join('cbt_tes', 'cbt_tes_user.tesuser_tes_id', '=', 'cbt_tes.tes_id')
                 ->join('cbt_tes_soal', 'cbt_tes_soal.tessoal_tesuser_id', '=', 'cbt_tes_user.tesuser_id')
                 ->where('cbt_user.user_id', $user_id)
-                ->whereRaw('DATE_ADD(cbt_tes.tes_end_time, INTERVAL 4 DAY) >= ?', [$today])
+                ->whereRaw('DATE_ADD(cbt_tes.tes_end_time, INTERVAL 5 DAY) >= ?', [$today])
                 ->groupBy('cbt_tes_user.tesuser_id', 'cbt_user_grup.grup_nama', 'cbt_tes.tes_nama', 'cbt_tes.tes_id', 'cbt_tes_user.tesuser_id')
                 ->having('nilai', '>', 0)
                 ->get();
