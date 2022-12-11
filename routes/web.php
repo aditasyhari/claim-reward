@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\GenerateController;
+use App\Http\Controllers\LokasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ Route::get('/auth/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth/login', [AuthController::class, 'postLogin']);
 
 Route::group(['middleware' => 'auth'], function () {
+    // lokasi
+    Route::get('/lokasi/getkabupaten', [LokasiController::class, 'getKab']);
+    Route::get('/lokasi/getkecamatan', [LokasiController::class, 'getKec']);
+    Route::get('/lokasi/getkelurahan', [LokasiController::class, 'getKel']);
+    Route::get('/lokasi/ongkir-provinsi', [LokasiController::class, 'ongkirProvinsi']);
+
     Route::get('/', [ClaimController::class, 'dashboard']);
     Route::get('/dashboard', [ClaimController::class, 'dashboard'])->name('dashboard');
     Route::post('/claim', [ClaimController::class, 'claim']);

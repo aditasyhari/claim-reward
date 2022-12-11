@@ -186,6 +186,59 @@
                         <div class="form-group">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
+                                    <label class="form-control-label">Provinsi</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i data-feather="home"></i></span>
+                                </div>
+                                <select name="id_propinsi" id="propinsi" class="form-control" required>
+                                    <option value="">Pilih Provinsi</option>
+                                    @foreach($propinsi as $pv)
+                                        <option value="{{$pv->id_propinsi}}">{{$pv->nama_propinsi}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-text text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <label class="form-control-label">Kabupaten / Kota</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i data-feather="home"></i></span>
+                                </div>
+                                <select name="id_kotakab" id="kotakab" class="form-control" required>
+                                    <option value="">Pilih Kab/Kota</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="form-text text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <label class="form-control-label">Kecamatan</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i data-feather="home"></i></span>
+                                </div>
+                                <select name="id_kecamatan" id="kecamatan" class="form-control" required>
+                                    <option value="">Pilih Kecamatan</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="form-text text-danger"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
                                     <label class="form-control-label">Alamat</label>
                                 </div>
                             </div>
@@ -214,36 +267,14 @@
 
                                     <div id="collapse{{$key}}" class="collapse {{ ($loop->first) ? 'show' : '' }}" data-parent="#accordion">
                                         <div class="card-body">
-                                            <div class="form-check pt-1">
-                                                <input class="form-check-input" type="radio" name="paket{{$key}}" data-tes="{{$value->tes_nama}}" data-key="{{$key}}" data-paket="a" data-harga="50000" value="a">
-                                                <label class="form-check-label" for="paket2"><h6>PAKET A (Rp 50.000)</h6></label>
-                                                <p class="justify">E-Piagam Penghargaan</p>
-                                            </div>
-
-                                            <div class="form-check pt-1">
-                                                <input class="form-check-input" type="radio" name="paket{{$key}}" data-tes="{{$value->tes_nama}}" data-key="{{$key}}" data-paket="b" data-harga="95000" value="b">
-                                                <label class="form-check-label" for="paket2"><h6>PAKET B (Rp 95.000)</h6></label>
-                                                <p class="justify">Piagam penghargaan dan sertifikat cetak</p>
-                                            </div>
-
-                                            <div class="form-check pt-1">
-                                                <input class="form-check-input" type="radio" name="paket{{$key}}" data-tes="{{$value->tes_nama}}" data-key="{{$key}}" data-paket="c" data-harga="145000" value="c">
-                                                <label class="form-check-label" for="paket2"><h6>Paket C (Rp 145.000)</h6></label>
-                                                <p class="justify">Piagam & sertifikat cetak + medali</p>
-                                            </div>
-
-                                            <div class="form-check pt-1">
-                                                <input class="form-check-input" type="radio" name="paket{{$key}}" data-tes="{{$value->tes_nama}}" data-key="{{$key}}" data-paket="d" data-harga="160000" value="d">
-                                                <label class="form-check-label" for="paket2"><h6>Paket D (Rp 160.000)</h6></label>
-                                                <p class="justify">E-piagam, piagam & sertifikat cetak + medali</p>
-                                            </div>
-
-                                            <div class="form-check pt-1">
-                                                <input class="form-check-input" type="radio" name="paket{{$key}}" data-tes="{{$value->tes_nama}}" data-key="{{$key}}" data-paket="bonus" data-harga="325000" value="bonus">
-                                                <label class="form-check-label" for="paket2"><h6>Paket Bonus (Rp 325.000)</h6></label>
-                                                <p class="justify">E-piagam, piagam & sertifikat cetak + medali + kaos + topi + tote bag</p>
-                                            </div>
-
+                                            @foreach($paket as $pkt)
+                                                <div class="form-check pt-1">
+                                                    <input class="form-check-input" type="radio" name="paket{{$key}}" data-tes="{{$value->tes_nama}}" data-key="{{$key}}" data-paket="{{ $pkt->nama_paket }}" data-harga="{{ $pkt->harga }}" value="{{ $pkt->nama_paket }}">
+                                                    <label class="form-check-label"><h6>PAKET {{ $pkt->nama_paket }} (Rp {{ number_format($pkt->harga, 0, ".", ".") }})</h6></label>
+                                                    <p class="justify">{{ $pkt->deskripsi }}</p>
+                                                </div>
+                                            @endforeach
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -257,11 +288,13 @@
                             <div class="col-8" style="text-align: right !important;">
                                 <h6>ITEM : </h6>
                                 <h6>ONGKIR : </h6>
+                                <h6>DISKON : </h6>
                                 <h6>TOTAL : </h6>
                             </div>
                             <div class="col-4">
                                 <h6 id="item">Rp 0</h6>
                                 <h6 id="ongkir">Rp 0</h6>
+                                <h6 id="diskon">Rp {{ number_format(Auth::user()->discount_claim, 0, ".", ".") }}</h6>
                                 <h6 id="total">Rp 0</h6>
                             </div>
                         </div>
@@ -303,10 +336,13 @@
                             </div>
                         </div>
 
-                        <input type="hidden" name="item_val" id="item_val">
-                        <input type="hidden" name="ongkir_val" id="ongkir_val">
-                        <input type="hidden" name="total_val" id="total_val">
+                        <input type="hidden" name="item_val" id="item_val" value="0">
+                        <input type="hidden" name="ongkir_val" id="ongkir_val" value="0">
+                        <input type="hidden" name="" id="ongkir_val2">
+                        <input type="hidden" name="diskon_val" id="diskon_val" value="{{ Auth::user()->discount_claim }}">
+                        <input type="hidden" name="total_val" id="total_val" value="0">
                         <input type="hidden" name="detail_paket" id="detail_paket">
+                        <input type="hidden" name="" id="include_ongkir">
 
                         <div class="mt-4">
                             <button type="submit" id="btn-submit-klaim" class="btn btn-block btn-primary">Klaim</button>

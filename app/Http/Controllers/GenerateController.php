@@ -13,14 +13,21 @@ class GenerateController extends Controller
         $nama = strtolower(Auth::user()->user_firstname);
         $nama = ucwords($nama);
         $img_name = time().'.jpg';
-        $img = Image::make(public_path('img/certificate-neso.jpg'));  
-        $img->text($nama, 1700, 1100, function($font) {  
-            $font->file(public_path('font/great-vibes-regular.ttf'));  
+        $img = Image::make(public_path('img/certificate-osn.jpg'));  
+        $img->text($nama, 1930, 1250, function($font) {  
+            $font->file(public_path('font/brush-regular.ttf'));  
             $font->size(230);  
-            $font->color('#093F6D');  
+            $font->color('#000000');  
             $font->align('center');  
             $font->valign('center');  
         });  
+        $img->text($olimpiade, 1950, 1570, function($font) {  
+            $font->file(public_path('font/arial-bold.ttf'));  
+            $font->size(60);  
+            $font->color('#000000');  
+            $font->align('center');  
+            $font->valign('center');  
+        }); 
 
         $img->save(public_path('img/certificate/'.$img_name)); 
 
