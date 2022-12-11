@@ -31,7 +31,7 @@ class ClaimController extends Controller
             'id_kecamatan'    => 'required',
             'alamat'    => 'required',
             'email'     => 'required|email',
-            'wa'        => 'required|numeric',
+            'wa'        => 'required|numeric|digits_between:1,13',
             'bukti'     => 'required|max:2048',
             'item_val'      => 'required',
             'ongkir_val'    => 'required',
@@ -76,6 +76,6 @@ class ClaimController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Klaim sukses, tunggu validasi dari admin, jika sudah divalidasi akan dihubungi oleh admin.');
+        return back()->with('success', 'Klaim sukses, tunggu validasi dari admin. Jika sudah divalidasi, invoice akan dikirimkan melalui email yang dicantumkan. Jika ada pertanyaan silahkan hubungi Admin.');
     }
 }
