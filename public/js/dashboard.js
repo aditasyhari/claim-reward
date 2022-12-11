@@ -68,6 +68,10 @@ $(document).ready(function() {
         }
     });
 
+    $("#input-nama").keyup(function () {
+        $("#nama_lengkap").val($(this).val());
+    });
+
     $('.form-check-input').on('click', function () {
         let harga = 0;
         let ongkir = 0;

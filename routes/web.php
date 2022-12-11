@@ -30,5 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [ClaimController::class, 'dashboard'])->name('dashboard');
     Route::post('/claim', [ClaimController::class, 'claim']);
     Route::post('/generate-certificate', [GenerateController::class, 'certificate']);
+
     Route::get('/logout', [AuthController::class, 'logout'])->name('dashboard.logout');
 });
