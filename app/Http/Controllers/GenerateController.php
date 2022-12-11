@@ -19,7 +19,7 @@ class GenerateController extends Controller
         foreach($tes as $data) {
             $olimpiade = strtoupper($data->mapel_en);
             $img_name = $olimpiade.' - '.$nama.' - '.time().'.jpg';
-            $img = Image::make(public_path('img/certificate-osn.jpg'));  
+            $img = Image::make(public_path('img/certificate.jpg'));  
             $img->text($nama, 1930, 1250, function($font) {  
                 $font->file(public_path('font/brush-regular.ttf'));  
                 $font->size(230);  
